@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WardrobeApplication.Models.Top>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<img src="~/Content/ImgFolder/AccTie.gif"width="1200" height="275" />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model)
+{
+@*<h2> @Html.DisplayFor(modelItem => item.TopName)</h2>*@
+
+    <div class="col-md-2 card">
+        <h2> @Html.DisplayFor(modelItem => item.TopName)</h2>
+        <img src="@Html.DisplayFor(modelItem => item.Photo)" alt="Avatar" style="width:250px" height="300">
+        <div class="container">
+            <h3><b> @Html.DisplayFor(modelItem => item.Occasion)</b></h3>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TopID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TopID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TopID })
+            </p>
+        </div>
+    </div>
+
+
+ }
+   
